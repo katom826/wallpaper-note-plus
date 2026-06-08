@@ -125,6 +125,14 @@ button {
     cursor: pointer;
 }
 
+#closeSettings {
+    width: 100%;
+    background: var(--accent);
+    color: white;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
 /* 画像出力オーバーレイ */
 #resultView {
     display: none;

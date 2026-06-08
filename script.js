@@ -101,20 +101,23 @@ function loadMemo() {
 }
 
 // モーダル制御
-settingsBtn.onclick = () => settingsModal.style.display = 'flex';
-closeSettings.onclick = () => {
+settingsBtn.addEventListener('click', () => {
+    settingsModal.style.display = 'flex';
+});
+
+closeSettings.addEventListener('click', () => {
     settingsModal.style.display = 'none';
     saveSettings();
-};
+});
 
 // リセットボタン
-resetBtn.onclick = () => {
+resetBtn.addEventListener('click', () => {
     if (confirm('メモの内容をすべて消去しますか？')) {
         memoArea.value = '';
         localStorage.setItem(MEMO_KEY, '');
         adjustHeight();
     }
-};
+});
 
 // 画像生成ロジック
 function generateImage() {
@@ -122,6 +125,7 @@ function generateImage() {
     canvas.width = WIDTH;
     canvas.height = HEIGHT;
     const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
     // 背景塗りつぶし
     ctx.fillStyle = bgColorInput.value;
@@ -176,14 +180,16 @@ function generateImage() {
     resultView.style.display = 'block';
 }
 
-saveBtn.onclick = generateImage;
-closeResult.onclick = () => resultView.style.display = 'none';
+saveBtn.addEventListener('click', generateImage);
+closeResult.addEventListener('click', () => {
+    resultView.style.display = 'none';
+});
 
 // 初期化
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
     loadSettings();
     loadMemo();
-};
+});
 
 // 画面リサイズ（回転など）時にスタイルを再適用
 window.onresize = applyStyles;
