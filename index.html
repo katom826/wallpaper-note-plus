@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>壁紙メモ＋</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <button id="settingsBtn">設定</button>
+        <button id="resetBtn">リセット</button>
+        <button id="saveBtn">保存</button>
+    </header>
+
+    <div id="memoContainer">
+        <textarea id="memoArea" placeholder="ここにメモを入力してください..."></textarea>
+    </div>
+
+    <!-- 設定モーダル -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content">
+            <h2>表示設定</h2>
+            <div class="form-group">
+                <label>背景色 <span id="bgColorValue" class="color-code">#ffffff</span></label>
+                <input type="color" id="bgColor" value="#ffffff">
+            </div>
+            <div class="form-group">
+                <label>文字色 <span id="textColorValue" class="color-code">#000000</span></label>
+                <input type="color" id="textColor" value="#000000">
+            </div>
+            <div class="form-group">
+                <label>フォント</label>
+                <select id="fontFamily">
+                    <option value="sans-serif">ゴシック体 (Sans-serif)</option>
+                    <option value="serif">明朝体 (Serif)</option>
+                    <option value="monospace">等幅 (Monospace)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>フォントサイズ (px)</label>
+                <input type="number" id="fontSize" value="60" min="20" max="200">
+            </div>
+            <button id="closeSettings"
+                style="width: 100%; background: var(--accent); color: white; border-radius: 8px; margin-top: 10px;">閉じる</button>
+        </div>
+    </div>
+
+    <!-- 結果表示用オーバーレイ -->
+    <div id="resultView">
+        <div class="close-overlay" id="closeResult">×</div>
+        <div class="info-text">画像を長押しして保存してください</div>
+        <img id="resultImage" alt="Generated Wallpaper">
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+
+</html>
