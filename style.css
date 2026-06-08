@@ -9,6 +9,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background-color: var(--primary-bg);
     height: 100vh;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -22,6 +23,9 @@ header {
     background: white;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     z-index: 10;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
 }
 
 button {
